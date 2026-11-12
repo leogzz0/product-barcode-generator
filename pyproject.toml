@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "barcodegen"
+version = "0.1.0"
+description = "Generate Code 128 barcodes and printable labels from a product CSV (Creamio)."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "python-barcode>=0.15",
+    "Pillow>=10",
+    "reportlab>=4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pypdf>=4"]
+
+[project.scripts]
+barcodegen = "barcodegen.cli:main"
+
+[tool.setuptools]
+packages = ["barcodegen"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
